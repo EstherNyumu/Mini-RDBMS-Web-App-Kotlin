@@ -150,7 +150,9 @@ The **join table** simulates a real-world scenario such as **seeing which orders
 ---
 
 ## Demo 
-**[Click here to watch the demo](https://youtu.be/5vnx6KKSkUw)**
+
+[![Watch the demo](https://img.youtube.com/vi/5vnx6KKSkUw/0.jpg)](https://youtu.be/5vnx6KKSkUw)
+
 ---
 
 ## Credits
