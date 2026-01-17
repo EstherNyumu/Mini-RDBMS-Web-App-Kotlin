@@ -37,7 +37,7 @@ fun main() {
     executor.execute(Parser.parse("CREATE TABLE users (user_id INT PRIMARY, name TEXT, password TEXT)"))
     executor.execute(Parser.parse("CREATE TABLE orders (order_id INT PRIMARY, user_id INT, status TEXT)"))
 
-    embeddedServer(Netty, port = 8080) {
+    embeddedServer(Netty, port = 8081) {
         install(CORS) {
             anyHost()
         }

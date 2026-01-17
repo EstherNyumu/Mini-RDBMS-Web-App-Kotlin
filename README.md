@@ -54,18 +54,19 @@ The application supports **user registration**, **placing orders**, and an **adm
 
 ## Project Structure
 
-/src
-├─ main/
-│ ├─ kotlin/org/example/Main.kt # Ktor server entry point
-│ ├─ kotlin/org/example/db/*.kt # Mini RDBMS engine
-│ ├─ kotlin/org/example/engine/Executor.kt # SQL execution engine
-│ ├─ kotlin/org/example/sql/*.kt # SQL-like parser and commands
-│ └─ kotlin/org/example/api/*.kt # API request and response models
-/resources/static/
-├─ index.html # Main frontend
-├─ style.css # Styles for frontend
-└─ script.js # JavaScript for frontend logic
-
+```text
+    src/
+    ├── main/
+    │   ├── kotlin/org/example/Main.kt        # Ktor server entry point
+    │   ├── kotlin/org/example/db/*.kt        # Mini RDBMS engine
+    │   ├── kotlin/org/example/engine/Executor.kt # SQL execution engine
+    │   ├── kotlin/org/example/sql/*.kt       # SQL-like parser and commands
+    │   └── kotlin/org/example/api/*.kt       # API request and response models
+    └── resources/static/
+        ├── index.html                        # Main frontend
+        ├── style.css                         # Styles for frontend
+        └── script.js                         # JavaScript for frontend logic
+```
 
 ---
 
@@ -90,28 +91,37 @@ The **join table** simulates a real-world scenario such as **seeing which orders
 ### Run the Application
 
 1. Clone the repository:
+
    ```bash
    git clone git@github.com:EstherNyumu/Mini-RDBMS-Web-App-Kotlin.git
    cd mini-rdbms
 
 
 2. Build and run the server:
+
     ```bash
     ./gradlew run
    ```
+   
    This starts the Ktor server on port 8080, bound to all network interfaces (0.0.0.0).
 
 3. Open your browser and navigate to:
 
     http://localhost:8080
 
-    Note: ``0.0.0.0:8080`` allows the server to accept connections from other devices on your network. For local testing, use http://localhost:8080. If port 8080 is busy, change the port in **Main.kt**:
+    **Note:** `0.0.0.0:8080` allows the server to accept connections from other devices on your network.
+    For local testing, use http://localhost:8080.  
+    If port `8080` is busy, change the port in **Main.kt**:
+    
     ```kotlin
     embeddedServer(Netty, port = 8081) { ... }.start(wait = true)
-
+    ```
+   
 4. Use the **Signup View** to create a user, then place orders.
 
 5. Switch to **Admin View** to manage users and orders.
+
+---
 
 ## Notes
 - This is an **in-memory database**. All data is lost when the server stops.
@@ -121,6 +131,8 @@ The **join table** simulates a real-world scenario such as **seeing which orders
 - Designed for learning and portfolio purposes.
 
 - Frontend development was accelerated using Claude AI, allowing focus on backend logic while producing a professional UI layout.
+
+---
 
 ## Future Improvements
 - Persistent storage using SQLite
@@ -135,7 +147,11 @@ The **join table** simulates a real-world scenario such as **seeing which orders
 
 - Enhanced UI/UX
 
+---
+
 ## Demo 
+
+---
 
 ## Credits
 - Kotlin, Ktor, and standard libraries
@@ -143,6 +159,8 @@ The **join table** simulates a real-world scenario such as **seeing which orders
 - Claude AI for frontend prototyping and UI generation
 
 #### Inspired by Pesapal Junior Developer Challenge '26
+
+---
 
 ## License
 This project is free to use for learning and portfolio purposes. No copyrighted material was borrowed.
