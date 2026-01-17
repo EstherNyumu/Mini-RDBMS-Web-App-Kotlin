@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini RDBMS Admin Dashboard</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header>
+    <div class="header-content">
+        <h1>📊 Mini RDBMS Admin Dashboard</h1>
+        <div id="userInfo" class="user-info"></div>
+    </div>
+</header>
+
+<main>
+    <section id="loginSection" class="card full-width">
+        <div class="card-header">
+            <h2>🔐 Sign In</h2>
+        </div>
+
+        <div class="login-container">
+            <div class="login-box">
+                <h3>User Sign Up & Sign In</h3>
+                <form>
+                    <input type="text" id="userName" placeholder="Enter your name" required />
+                    <input type="password" id="userPassword" placeholder="Enter password" required />
+                    <button type="button" class="btn-primary" onclick="userSignIn()">👤 Sign In as User</button>
+                </form>
+                <div id="userLoginResult" class="result-message"></div>
+            </div>
+
+            <div class="login-divider">
+                <span>OR</span>
+            </div>
+
+            <div class="login-box">
+                <h3>Admin Sign In</h3>
+                <form>
+                    <input type="password" id="adminPassword" placeholder="Admin password" required />
+                    <button type="button" class="btn-secondary" onclick="adminSignIn()">🔑 Sign In as Admin</button>
+                </form>
+                <div id="adminLoginResult" class="result-message"></div>
+                <p class="hint">Admin password: admin123</p>
+            </div>
+        </div>
+    </section>
+
+    <!--users-->
+    <section id="userDashboard" class="card full-width" style="display: none;">
+        <div class="card-header">
+            <h2>🛒 My Orders</h2>
+            <button onclick="logout()" class="btn-danger">🚪 Logout</button>
+        </div>
+
+        <div class="form-group">
+            <h3>Place New Order</h3>
+            <form>
+                <button type="button" class="btn-primary" onclick="placeOrder()">➕ Place Order</button>
+            </form>
+            <div id="placeOrderResult" class="result-message"></div>
+        </div>
+
+        <div class="data-display">
+            <h3>My Orders</h3>
+            <pre id="userOrdersList" class="data-table"></pre>
+        </div>
+
+        <div class="form-group">
+            <h3>Cancel Order</h3>
+            <form>
+                <input type="number" id="cancelOrderId" placeholder="Order ID to cancel" required />
+                <button type="button" class="btn-danger" onclick="cancelOrder()">🗑️ Cancel Order</button>
+            </form>
+            <div id="cancelOrderResult" class="result-message"></div>
+        </div>
+    </section>
+
+    <!--admin-->
+    <section id="adminDashboard" style="display: none;">
+        <div class="admin-header">
+            <h2>⚙️ Admin Dashboard</h2>
+            <button onclick="logout()" class="btn-danger">🚪 Logout</button>
+        </div>
+
+        <section class="card">
+            <div class="card-header">
+                <h2>👥 Users Management</h2>
+            </div>
+
+            <div class="data-display">
+                <h3>All Users</h3>
+                <pre id="adminUsersList" class="data-table"></pre>
+            </div>
+
+            <div class="form-group">
+                <h3>Delete User</h3>
+                <form>
+                    <input type="number" id="adminDeleteUserId" placeholder="User ID to delete" required />
+                    <button type="button" class="btn-danger" onclick="adminDeleteUser()">🗑️ Delete User</button>
+                </form>
+                <div id="adminDeleteUserResult" class="result-message"></div>
+            </div>
+        </section>
+
+        <section class="card">
+            <div class="card-header">
+                <h2>🛒 Orders Management</h2>
+            </div>
+
+            <div class="data-display">
+                <h3>All Orders</h3>
+                <pre id="adminOrdersList" class="data-table"></pre>
+            </div>
+
+            <div class="form-group">
+                <h3>Update Order Status</h3>
+                <form>
+                    <input type="number" id="adminUpdateOrderId" placeholder="Order ID" required />
+                    <select id="adminUpdateOrderStatus" required>
+                        <option value="">Select Status</option>
+                        <option value="PENDING">Pending</option>
+                        <option value="PROCESSING">Processing</option>
+                        <option value="COMPLETED">Completed</option>
+                        <option value="CANCELLED">Cancelled</option>
+                    </select>
+                    <button type="button" class="btn-secondary" onclick="adminUpdateOrder()">✏️ Update Order</button>
+                </form>
+                <div id="adminUpdateOrderResult" class="result-message"></div>
+            </div>
+
+            <div class="form-group">
+                <h3>Delete Order</h3>
+                <form>
+                    <input type="number" id="adminDeleteOrderId" placeholder="Order ID to delete" required />
+                    <button type="button" class="btn-danger" onclick="adminDeleteOrder()">🗑️ Delete Order</button>
+                </form>
+                <div id="adminDeleteOrderResult" class="result-message"></div>
+            </div>
+        </section>
+
+        <section class="card full-width">
+            <div class="card-header">
+                <h2>🔗 Orders with User Details</h2>
+            </div>
+
+            <div class="data-display">
+                <h3>Combined Results</h3>
+                <pre id="adminJoinResult" class="data-table"></pre>
+            </div>
+        </section>
+    </section>
+
+</main>
+
+<footer>
+    <p>Mini RDBMS Dashboard</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
