@@ -150,7 +150,7 @@ The **join table** simulates a real-world scenario such as **seeing which orders
 ---
 
 ## Demo 
-**[Click here to watch the demo](./demo/Mini-RDBMS-Web-App-Demo.mp4)**
+**[Click here to watch the demo](https://youtu.be/5vnx6KKSkUw)**
 ---
 
 ## Credits
